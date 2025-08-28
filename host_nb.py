@@ -28,7 +28,7 @@ JUPYTER_TOKEN = "1234"  # Change me to something non-guessable!
 HOURS = 3600
 
 
-@app.function(max_containers=1, volumes={"/root/jupyter": volume}, timeout=24 * HOURS, gpu="T4")
+@app.function(max_containers=1, volumes={"/root/jupyter": volume}, timeout=24 * HOURS, gpu="L40S")
 def run_jupyter(timeout: int):
     jupyter_port = 8888
     with modal.forward(jupyter_port) as tunnel:
